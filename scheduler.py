@@ -11,8 +11,8 @@ async def check_voice_channels(client):
                 for voice_channel in guild.voice_channels:  # ボイスチャンネルを順にチェック
                     # ボイスチャンネルにメンバーがいるかチェック
                     if voice_channel.members:
-                        # テキストチャンネルIDを指定（ここでは67890と仮定）
-                        text_channel = client.get_channel(67890)
+                        # テキストチャンネルIDを指定
+                        text_channel = client.get_channel(1003353000787591309)
 
                         # テキストチャンネルにスタンプを送信
                         await text_channel.send(f"{voice_channel.name}に起きてる人がいます！ :nero:")
