@@ -4,7 +4,7 @@ import os
 import omikuji
 from random_weapon import split_team, osusume
 from tenki import handle_tenki
-from scheduler import check_voice_channel
+from scheduler import check_voice_channels
 
 # bot access TOKEN
 TOKEN = os.environ["DISCORD_TOKEN"]
@@ -24,7 +24,7 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-    client.loop.create_task(check_voice_channel(client))
+    client.loop.create_task(check_voice_channels(client))
 
 
 @client.event
