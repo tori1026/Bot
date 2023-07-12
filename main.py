@@ -43,7 +43,7 @@ async def on_message(message):
         await handle_tenki(channel)
         
     #おみくじを引く
-    if message.content == "!omikuji":
+    	if message.content == "!omikuji":
 		love, work, health, money = await omikuji.draw_omikuji()
 		# 恋愛運、仕事運、健康運、金運を取得
 		result = await omikuji.get_result(love, work, health, money)
