@@ -42,10 +42,11 @@ async def handle_omikuji(channel):
     # 星の数を表す文字列を取得
     love_str, work_str, health_str, money_str = await omikuji_str(love, work, health, money)
     # 結果を表示
-    result_message = (
-        f'{"恋愛運 :":<7}{love_str}\n'
-        f'{"仕事運 :":<7}{work_str}\n'
-        f'{"健康運 :":<7}{health_str}\n'
-        f'{"金運   :":<7}{money_str}'
-    )
-    await channel.send(result_message)
+		result_message = (
+			f'あなたの今日の運勢は{result}！\n'
+			f'恋愛運 : {love_str}\n'
+			f'仕事運 : {work_str}\n'
+			f'健康運 : {health_str}\n'
+			f'金運　 : {money_str}'
+		)
+		await channel.send(result_message)
