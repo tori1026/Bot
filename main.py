@@ -23,6 +23,8 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
+    client.loop.create_task(check_voice_channel(client))
+
 
 @client.event
 async def on_message(message):
