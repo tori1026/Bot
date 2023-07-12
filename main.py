@@ -4,6 +4,7 @@ import os
 import omikuji
 from random_weapon import split_team, osusume
 from tenki import handle_tenki
+from scheduler import check_voice_channel
 
 # bot access TOKEN
 TOKEN = os.environ["DISCORD_TOKEN"]
