@@ -26,7 +26,6 @@ async def on_ready():
 
     client.loop.create_task(check_voice_channels(client))
 
-
 @client.event
 async def on_message(message):
     channel = message.channel
