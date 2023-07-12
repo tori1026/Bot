@@ -43,9 +43,9 @@ async def handle_omikuji(channel):
     love_str, work_str, health_str, money_str = await omikuji_str(love, work, health, money)
     # 結果を表示
     result_message = (
-        f'{"恋愛運":<6} : {love_str}\n'
-        f'{"仕事運":<6} : {work_str}\n'
-        f'{"健康運":<6} : {health_str}\n'
-        f'{"金運":<8} : {money_str}'
-    )
+        f'{"恋愛運 :":<8}{love_str}\\n'
+        f'{"仕事運 :":<8}{work_str}\\n'
+        f'{"健康運 :":<8}{health_str}\\n'
+        f'{"金運   :":<8}{money_str}'
+)
     await channel.send(result_message)
