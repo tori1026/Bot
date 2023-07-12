@@ -1,3 +1,6 @@
+import random
 
 async def handle_tenki(channel):
-    await channel.send("しらん")
+    responses = ["しらん", "あつい"]
+    response = random.choice(responses)
+    await channel.send(response)
