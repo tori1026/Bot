@@ -15,7 +15,8 @@ async def check_voice_channels(client):
                         text_channel = client.get_channel(1003353000787591309)
 
                         # テキストチャンネルにスタンプを送信
-                        await text_channel.send(f"{voice_channel.name}に起きてる人がいます！ :nero:")
+                        nero_emoji = "<:nero:1128342167354613910>"
+                        await text_channel.send(f"{voice_channel.name}に起きてる人がいます！{nero_emoji}")
 
         # 次の日付が変わるタイミングまで待機
         await asyncio.sleep((24 - now.hour) * 60 * 60 - now.minute * 60 - now.second)
