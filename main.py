@@ -1,7 +1,7 @@
 import discord
 import os
 
-from omikuji import handle_omikuji
+import omikuji
 from random_weapon import split_team, osusume
 from tenki import handle_tenki
 from weapon_range import get_weapon_range
