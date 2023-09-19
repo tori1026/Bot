@@ -37,7 +37,7 @@ async def osusume(channel):
         # weapons の中からカテゴリをランダムに抽選する
         category = random.choices(list(data.keys()), weights=[w['weight'] for w in data.values()])[0]
         # ランダムに抽選したカテゴリの weapons の中からブキをランダムに抽選する
-        weapon = random.choices(list(data[category]['weapons'].keys()), weights=[w[\'weight\'] for w in data[category][\'weapons\'].values()])[0]
+        weapon = random.choices(list(data[category]['weapons'].keys()), weights=[w['weight'] for w in data[category]['weapons'].values()])[0]
         
         await channel.send("おすすめは" + weapon + "！
 よかったら使ってみてね！")
