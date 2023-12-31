@@ -53,7 +53,7 @@ async def on_message(message):
         love_str, work_str, health_str, money_str = await omikuji.omikuji_str(love, work, health, money)
         # 結果を表示
         result_message = (
-            f'あなたの今日の運勢は{result}！\n'
+            f'あなたの今年の運勢は{result}！\n'
             f'恋愛運 : {love_str}\n'
             f'仕事運 : {work_str}\n'
             f'健康運 : {health_str}\n'
