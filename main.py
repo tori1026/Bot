@@ -7,8 +7,6 @@ from random_weapon import split_team, osusume
 from tenki import handle_tenki
 from weapon_range import get_weapon_range
 
-from discord_slash.utils import manage_commands # for remove slash command
-
 # bot access TOKEN
 TOKEN = os.environ["DISCORD_TOKEN"]
 
@@ -27,7 +25,13 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-    await manage_commands.remove_all_commands_in(client.user.id, TOKEN)
+     # すべてのグローバルコマンドを削除する
+    guilds = await client.fetch_guilds(limit=150).flatten()
+    for guild in guilds:
+        commands = await client.application_info().commands
+        for command in commands:
+            await command.delete()
+    print("All commands have been deleted.")
 
 def setup_database():
     # データベース接続の作成（ファイルがなければ新規作成される）
