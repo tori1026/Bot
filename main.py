@@ -61,20 +61,14 @@ async def on_message(message):
         )
         await channel.send(result_message)
 
+    if message.content.startswith('!range'):
+       weapon_name = message.content.split(' ')[1]
+       weapon_range = get_weapon_range(weapon_name)
+       if weapon_range is not None:
+           await message.channel.send(f"The range of {weapon_name} is {weapon_range}.")
+       else:
+           await message.channel.send(f"Weapon {weapon_name} not found.")
+
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
-# Command to get the range of a weapon
-@client.event
-async def on_message(message):
-    if message.content.startswith('!range'):
-        # Extract the weapon name from the message
-        weapon_name = message.content.split(' ')[1]
-        
-        # Get the range of the weapon
-        weapon_range = get_weapon_range(weapon_name)
-        
-        if weapon_range is not None:
-            await message.channel.send(f"The range of {weapon_name} is {weapon_range}.")
-        else:
-            await message.channel.send(f"Weapon {weapon_name} not found.")
