@@ -1,10 +1,13 @@
 import discord
 import os
+import sqlite3
 
 import omikuji
 from random_weapon import split_team, osusume
 from tenki import handle_tenki
 from weapon_range import get_weapon_range
+
+from discord_slash.utils import manage_commands # for remove slash command
 
 # bot access TOKEN
 TOKEN = os.environ["DISCORD_TOKEN"]
@@ -24,6 +27,31 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
+    await manage_commands.remove_all_commands_in(client.user.id, TOKEN)
+
+def setup_database():
+    # データベース接続の作成（ファイルがなければ新規作成される）
+    conn = sqlite3.connect('bot.db')
+    c = conn.cursor()
+
+    # 参加者テーブルの作成
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS participants (
+            id INTEGER PRIMARY KEY,
+            session_id INTEGER,
+            user_id INTEGER,
+            username TEXT
+        )
+    ''')
+
+    # 他に必要なテーブルがあればここで作成
+
+    # 変更をコミットして接続を閉じる
+    conn.commit()
+    conn.close()
+
+# データベースのセットアップを実行
+setup_database()
 
 @client.event
 async def on_message(message):
