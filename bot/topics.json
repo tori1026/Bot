@@ -1,0 +1,12 @@
+{
+  "topics": [
+    {
+      "description": "キル数が最も多いプレイヤー",
+      "multiplier": 2.0
+    },
+    {
+      "description": "勝利するチーム",
+      "multiplier": 1.5
+    }
+  ]
+}

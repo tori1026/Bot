@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  bot:
+    build: .
+    volumes:
+      - ./bot:/usr/src/app:rw
+    working_dir: /usr/src/app
+    environment:
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
+    command: ["python3", "main.py"]
+    tty: true
